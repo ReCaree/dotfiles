@@ -1,9 +1,29 @@
 @import "./config.rasi"
 
+configuration {
+  show-icons: false;
+  location: 3;
+}
+
+window {
+  width: 150px;
+}
+
+listview {
+  columns: 1;
+  lines: 5;
+}
+
+element {
+  padding: 2 0 2 10;
+}
+
 entry {
   enabled: false;
 }
 
-promp {
-  enabled: false;
+prompt {
+  margin: 1;
+  padding: 0;
+  horizontal-align: 0.5;
 }
