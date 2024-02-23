@@ -1,0 +1,37 @@
+[global]
+    width = (300, 1500)
+    height = 1000
+    offset = 5x5
+    scale = 0
+    progress_bar_corner_radius = 0
+    format = "<b>%s</b>\n%b"
+    stack_duplicates = true
+    enable_recursive_icon_lookup = true
+    font = FiraCode Nerd Font Reg 11
+    icon_theme = "breeze-dark"
+    min_icon_size = 26
+    max_icon_size = 128
+    icon_corner_radius = 5
+    separator_height = 5
+    frame_width = 3
+    separator_color = frame
+    frame_color = "#d8dee9"
+    corner_radius = 10
+    sort = yes
+
+[urgency_low]
+    background = "#4c566a"
+    foreground = "#e5e9f0"
+    timeout = 10
+
+[urgency_normal]
+    background = "#4c566a"
+    foreground = "#e5e9f0"
+    highlight = "#d08770"
+    timeout = 10
+
+[urgency_critical]
+    background = "#4c566a"
+    foreground = "#ebcb8b"
+    frame_color = "#bf616a"
+    timeout = 0

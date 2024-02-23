@@ -1,6 +1,6 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: Roboto, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-family: "FiraCode Nerd Font SemBd", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
     font-size: 13px;
 }
 
@@ -100,20 +100,40 @@ button:hover {
 #mode,
 #idle_inhibitor,
 #scratchpad,
-#mpd {
+#mpd,
+#window,
+#custom-powermenu {
     padding-top: 1px;
     padding: 0 10px;
     margin-right: 6px;
     /* color: #ffffff; */
 }
 
-#clock, #pulseaudio, #bluetooth, #network, #backlight, #battery {
+#clock, #pulseaudio, #bluetooth, #network, #backlight, #battery, #window, #custom-powermenu {
     border-radius: 10px;
   background-color: #3b4252;
   /* margin-top: 15px; */
   color: #d8dee9;
   /* margin-right: 10px;/ */
 }
+
+#custom-powermenu {
+    padding: 0 1em;
+    padding-left: .8em;
+    background-color: #d8dee9;
+    color: #4c566a;
+}
+
+#window {
+    color: #eceff4;
+    background-color: #81a1c1;
+    font-weight: bold;
+}
+
+#waybar.empty #window {
+    background: none;
+}
+
 
 #bluetooth {
     padding: 0 10px;
@@ -135,7 +155,11 @@ button:hover {
 #network, #pulseaudio {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    margin-left: -10px;
+    margin-left: -12px;
+}
+
+#network {
+    margin-left: -5px;
 }
 
 

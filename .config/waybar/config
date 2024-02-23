@@ -7,9 +7,9 @@
     // "spacing": 6, // Gaps between modules (4px)
     // Choose the order of the modules
     "reload_style_on_change": true,
-    "modules-left": ["hyprland/workspaces"],
-    "modules-center": ["clock"],
-    "modules-right": ["backlight","pulseaudio", "bluetooth", "network", "battery", "battery#bat2"],
+    "modules-left": ["clock", "hyprland/workspaces"],
+    "modules-center": [],
+    "modules-right": ["backlight","pulseaudio", "bluetooth", "network", "battery", "battery#bat2", "custom/powermenu"],
     // Modules configuration
     // "sway/workspaces": {
     //     "disable-scroll": true,
@@ -107,7 +107,7 @@
     //     "format-alt": "{:%Y-%m-%d}"
     // },
     "clock": {
-      "format": "<span color='#81a1c1'>  </span>{:%H:%M}",
+      "format": "<span color='#81a1c1'> </span>{:%H:%M}",
     },
     "cpu": {
         "format": "{usage}% ",
@@ -126,7 +126,7 @@
     },
     "backlight": {
         // "device": "acpi_video1",
-        "format": "{icon}  {percent}% ",
+        "format": "{icon} {percent}% ",
         "format-icons": ["", "", "", "", "", "", "", "", ""]
     },
     "battery": {
@@ -135,9 +135,9 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{icon}   {capacity}%",
-        "format-charging": "   {capacity}%",
-        "format-plugged": "   {capacity}%",
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
@@ -155,14 +155,15 @@
         // "format-disconnected": "Disconnected ⚠",
         // "format-alt": "{ifname}: {ipaddr}/{cidr}"
         "format": "{ifname}",
-      "format-wifi": "<span color='#81a1c1'>   </span>{essid}",
-      "format-ethernet": "{ipaddr}/{cidr} ",
-      "format-disconnected": "<span color='#81a1c1'>󰖪   </span>No Network",
+      "format-wifi": "<span color='#81a1c1'>  </span>{essid}",
+      "format-ethernet": "{ipaddr}/{cidr}  ",
+      "format-disconnected": "<span color='#81a1c1'>󰖪  </span>No Network",
       "tooltip": false,
+      "on-click": "nm-connection-editor "
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{icon}  {volume}%",
+        "format": "{icon} {volume}%",
         "format-muted": " ",
         "tooltip": false,
         "format-icons": {
@@ -187,6 +188,10 @@
         "escape": true,
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    },
+    "custom/powermenu": {
+        "format": "",
+        "on-click": "~/.local/bin/rofi-power-menu.sh "
     }
 }
 

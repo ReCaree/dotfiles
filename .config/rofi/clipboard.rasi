@@ -1,0 +1,9 @@
+@import "./config.rasi"
+
+configuration {
+  show-icons: false;
+}
+
+prompt {
+  enabled: false;
+}
