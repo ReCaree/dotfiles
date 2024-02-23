@@ -1,32 +1,34 @@
 #!/bin/bash
  
-lock=" Lock"
-logout=" Logout"
-shutdown="襤 Poweroff"
-reboot=" Reboot"
+lock=" Lock"
+logout="󰍃 Logout"
+shutdown=" Poweroff"
+reboot=" Reboot"
 sleep=" Suspend"
  
 selected_option=$(echo "$lock
 $logout
 $sleep
 $reboot
-$shutdown" | rofi -dmenu -i -theme powermenu.rasi -p "Powermenu")
+$shutdown" | rofi -dmenu -i -config ~/.config/rofi/powermenu.rasi -p "Powermenu")
+
+
 
 if [ "$selected_option" == "$lock" ]
 then
-  swaylock
+  exec swaylock
 elif [ "$selected_option" == "$logout" ]
 then
-  loginctl terminate-user `whoami`
+  exec hyprctl dispatch exit
 elif [ "$selected_option" == "$shutdown" ]
 then
-  loginctl poweroff
+  exec systemctl poweroff
 elif [ "$selected_option" == "$reboot" ]
 then
-  loginctl reboot
+  exec systemctl reboot
 elif [ "$selected_option" == "$sleep" ]
 then
-  loginctl suspend
+  exec systemctl suspend
 else
   echo "No match"
 fi
