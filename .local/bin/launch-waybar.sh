@@ -2,4 +2,5 @@
 
 killall waybar
 
-exec waybar
+#GTK_DEBUG=interactive waybar
+waybar
