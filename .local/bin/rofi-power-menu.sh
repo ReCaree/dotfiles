@@ -16,7 +16,7 @@ $shutdown" | rofi -dmenu -i -config ~/.config/rofi/powermenu.rasi -p "Powermenu"
 
 if [ "$selected_option" == "$lock" ]
 then
-  exec swaylock
+  exec hyprlock
 elif [ "$selected_option" == "$logout" ]
 then
   exec hyprctl dispatch exit
