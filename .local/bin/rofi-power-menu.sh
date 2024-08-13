@@ -10,7 +10,7 @@ selected_option=$(echo "$lock
 $logout
 $sleep
 $reboot
-$shutdown" | rofi -dmenu -i -config ~/.config/rofi/powermenu.rasi -p "Powermenu")
+$shutdown" | rofi -dmenu -i -config ~/.config/rofi/powermenu.rasi -yoffset 50  -p "Powermenu")
 
 
 
