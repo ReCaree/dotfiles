@@ -1,0 +1,20 @@
+cat << 'EOF' > ~/dotfiles/.gitignore
+# Ignore Noctalia dynamic states & plugin submodules
+noctalia/.local/state/
+
+# Ignore system runtime & cache
+*.sqlite*
+*.bin
+*.db
+*.lz4
+*.lock
+.parentlock
+*.bak
+
+# Ignore Zen/Firefox dynamic profile caches
+**/sessionstore-backups/
+**/bookmarkbackups/
+**/datareporting/
+**/storage/
+**/gmp-*
+EOF
