@@ -54,7 +54,7 @@ hl.on("hyprland.start", function ()
 --   hl.exec_cmd("nm-applet")
 --   hl.exec_cmd("waybar & hyprpaper & firefox")
      hl.exec_cmd("noctalia")
-     hl.exec_cmd("exec-once = easyeffects --gapplication-service")
+     hl.exec_cmd("easyeffects --gapplication-service")
      -- hl.exec_cmd("/usr/lib/polkit-kde-authentication-agent-1")
 end)
 
@@ -67,7 +67,7 @@ end)
 
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
-
+hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 
 -----------------------
 ----- PERMISSIONS -----
@@ -279,7 +279,7 @@ hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 
 local ipc = "noctalia msg "
 hl.bind(mainMod .. "+Space", hl.dsp.exec_cmd(ipc .. "panel-toggle launcher"))
-hl.bind(mainMod .. "+S", hl.dsp.exec_cmd(ipc .. "panel-toggle control-center"))
+hl.bind(mainMod .. "+A", hl.dsp.exec_cmd(ipc .. "panel-toggle control-center"))
 hl.bind(mainMod .. "+comma", hl.dsp.exec_cmd(ipc .. "settings-toggle"))
 hl.bind("ALT + Tab", hl.dsp.exec_cmd(ipc .. "window-switcher"))
 hl.bind("Print", hl.dsp.exec_cmd(ipc .. "screenshot-region")) 
