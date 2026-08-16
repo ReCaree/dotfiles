@@ -290,6 +290,10 @@ hl.bind(mainMod .. " + CTRL + B",  hl.dsp.exec_cmd("qs ipc -p /usr/share/chillpi
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("qs ipc -p /usr/share/chillpill-shell call appLauncher toggle"))
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("qs ipc -p /usr/share/chillpill-shell call wallpaperSwitcher toggle"))
 
+hl.bind("Print", hl.dsp.exec_cmd("sh -c \"mkdir -p ~/Pictures/Screenshots && grim -g \\\"$(slurp)\\\" - | tee ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png | wl-copy && notify-send 'Screenshot of the region taken' -t 1000\""))
+
+hl.bind("SHIFT + Print", hl.dsp.exec_cmd("sh -c \"mkdir -p ~/Pictures/Screenshots && grim - | tee ~/Pictures/Screenshots/Screenshot-/$(date +%F_%T).png | wl-copy && notify-send 'Screenshot of whole screen taken' -t 1000\""))
+
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
 for i = 1, 10 do
