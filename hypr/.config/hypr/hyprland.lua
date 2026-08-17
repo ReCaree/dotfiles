@@ -58,6 +58,7 @@ hl.on("hyprland.start", function ()
      hl.exec_cmd("wl-paste --watch cliphist store")
      hl.exec_cmd("awww-daemon")
      hl.exec_cmd("/usr/lib/polkit-kde-authentication-agent-1")
+     hl.exec_cmd("hypridle")
 end)
 
 
@@ -104,7 +105,8 @@ hl.config({
         border_size = 2,
 
         col = {
-            active_border   = { colors = {"rgba(33ccffee)", "rgba(00ff99ee)"}, angle = 45 },
+            --active_border   = { colors = {"rgba(33ccffee)", "rgba(00ff99ee)"}, angle = 45 },
+	    active_border   = "#e0dede",
             inactive_border = "rgba(595959aa)",
         },
 
@@ -135,10 +137,14 @@ hl.config({
 
         blur = {
             enabled   = true,
-            size      = 3,
-            passes    = 2,
+            size      = 8,
+            passes    = 3,
             vibrancy  = 0.1696,
         },
+
+	motion_blur = {
+	   -- enabled = true
+	}
     },
 
     animations = {
@@ -379,6 +385,41 @@ hl.window_rule({
     move  = "20 monitor_h-120",
     float = true,
 })
+
+if hl.plugin.hyprglass then
+    local hg = hl.plugin.hyprglass
+
+    hg.config({
+        default_theme = "dark",
+        default_preset = "clear",
+        tint_color = 0x8899aa22,
+
+        brightness = 0.9,
+        dark = { brightness = 0.82 },
+        light = { adaptive_boost = 0.5 },
+
+        layers = { enabled = 1 },
+    })
+
+    -- Layer surfaces: each call whitelists the namespace and configures it
+    hg.layer("quickshell", { preset = "clear", mask_threshold = 0.3 })
+    hg.layer("debug-panel", { exclude = true })
+
+    -- Presets
+    hg.preset("clear", {
+        glass_opacity = 0.8,
+        blur_strength = 1.5,
+        dark = { brightness = 0.7 },
+        light = { brightness = 1.2 },
+    })
+
+    hg.preset("contrasted", {
+        inherits = "high_contrast",
+        contrast = 1.2,
+        adaptive_dim = 1.5,
+        dark = { tint_color = 0x02142aa9 },
+    })
+end
 
 -- HyprMod managed settings
 require("hyprland-gui")
